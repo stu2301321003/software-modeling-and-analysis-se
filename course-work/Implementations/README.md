@@ -14,13 +14,11 @@ This project implements a full data solution inspired by Booking.com, including:
 
 ## Project Structure
 ```
-diagrams/
-sql/
-  oltp/
-  dwh/
-powerbi/
-README.md
-Problems.md
+diagrams -> contains the .jpeg and .drawio files
+sql -> contains sql scripts
+powerbi-> contains the powerbi file and png
+README.md -> the default readme
+Problems.md -> the problems which i faced
 ```
 
 ---
