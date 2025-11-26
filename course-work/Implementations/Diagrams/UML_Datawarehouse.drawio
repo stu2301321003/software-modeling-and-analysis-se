@@ -1,0 +1,80 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.1.1">
+  <diagram name="Страница-1" id="2ZarY-5xePvfXBRFSplU">
+    <mxGraphModel dx="3674" dy="2553" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DimUser" parent="1" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc" value="DimUser&#xa;----------------&#xa;user_key : int PK&#xa;original_user_id : int&#xa;full_name : nvarchar(200)&#xa;role : nvarchar(20)" vertex="1">
+          <mxGeometry height="180" width="230" x="-140" y="-330" as="geometry" />
+        </mxCell>
+        <mxCell id="DimProperty" parent="1" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc" value="DimProperty&#xa;----------------&#xa;property_key : int PK&#xa;original_property_id : int&#xa;name : nvarchar(200)&#xa;capacity : int&#xa;base_price : decimal(10,2)&#xa;cleaning_fee : decimal(10,2)" vertex="1">
+          <mxGeometry height="220" width="260" x="20" y="-60" as="geometry" />
+        </mxCell>
+        <mxCell id="DimLocation" parent="1" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc" value="DimLocation&#xa;----------------&#xa;location_key : int PK&#xa;city : nvarchar(100)&#xa;country : nvarchar(100)" vertex="1">
+          <mxGeometry height="150" width="230" x="260" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="DimDate" parent="1" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc" value="DimDate&#xa;----------------&#xa;date_key : int PK&#xa;date : date&#xa;year : int&#xa;quarter : tinyint&#xa;month : tinyint&#xa;day : tinyint" vertex="1">
+          <mxGeometry height="200" width="230" x="-340" y="-660" as="geometry" />
+        </mxCell>
+        <mxCell id="DimStatus" parent="1" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc" value="DimStatus&#xa;----------------&#xa;status_key : int PK&#xa;status_type : nvarchar(20)&#xa;status_value : nvarchar(20)" vertex="1">
+          <mxGeometry height="150" width="230" x="760" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="DimAmenity" parent="1" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc" value="DimAmenity&#xa;----------------&#xa;amenity_key : int PK&#xa;original_amenity_id : int&#xa;name : nvarchar(100)&#xa;description : nvarchar(255)" vertex="1">
+          <mxGeometry height="180" width="250" x="1020" y="-210" as="geometry" />
+        </mxCell>
+        <mxCell id="FactReservation" parent="1" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4" value="FactReservation&#xa;----------------&#xa;reservation_key : int PK&#xa;user_key : int FK&#xa;property_key : int FK&#xa;location_key : int FK&#xa;checkin_date_key : int FK&#xa;checkout_date_key : int FK&#xa;status_key : int FK&#xa;nights : int&#xa;total_price : decimal(10,2)" vertex="1">
+          <mxGeometry height="250" width="270" x="260" y="-470" as="geometry" />
+        </mxCell>
+        <mxCell id="FactPayment" parent="1" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc" value="FactPayment&#xa;----------------&#xa;payment_key : int PK&#xa;reservation_key : int FK&#xa;payment_date_key : int FK&#xa;status_key : int FK&#xa;amount : decimal(10,2)" vertex="1">
+          <mxGeometry height="180" width="260" x="745" y="-650" as="geometry" />
+        </mxCell>
+        <mxCell id="FactReview" parent="1" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc" value="FactReview&#xa;----------------&#xa;review_key : int PK&#xa;user_key : int FK&#xa;property_key : int FK&#xa;location_key : int FK&#xa;review_date_key : int FK&#xa;rating : tinyint" vertex="1">
+          <mxGeometry height="200" width="260" x="-355" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="FR_User" edge="1" parent="1" source="FactReservation" style="endArrow=block;endFill=1;rounded=0;html=1" target="DimUser" value="user_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FR_Property" edge="1" parent="1" source="FactReservation" style="endArrow=block;endFill=1;rounded=0;html=1" target="DimProperty" value="property_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FR_Location" edge="1" parent="1" source="FactReservation" style="endArrow=block;endFill=1;rounded=0;html=1" target="DimLocation" value="location_key">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FR_CheckinDate" edge="1" parent="1" source="FactReservation" style="endArrow=block;endFill=1;rounded=0;html=1" target="DimDate" value="checkin_date_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FR_CheckoutDate" edge="1" parent="1" source="FactReservation" style="endArrow=block;endFill=1;rounded=0;html=1;dashed=1" target="DimDate" value="checkout_date_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FR_Status" edge="1" parent="1" source="FactReservation" style="endArrow=block;endFill=1;rounded=0;html=1" target="DimStatus" value="status_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FP_Reservation" edge="1" parent="1" source="FactPayment" style="endArrow=block;endFill=1;rounded=0;html=1" target="FactReservation" value="reservation_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FP_Date" edge="1" parent="1" source="FactPayment" style="endArrow=block;endFill=1;rounded=0;html=1" target="DimDate" value="payment_date_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FP_Status" edge="1" parent="1" source="FactPayment" style="endArrow=block;endFill=1;rounded=0;html=1" target="DimStatus" value="status_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FRev_User" edge="1" parent="1" source="FactReview" style="endArrow=block;endFill=1;rounded=0;html=1" target="DimUser" value="user_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FRev_Property" edge="1" parent="1" source="FactReview" style="endArrow=block;endFill=1;rounded=0;html=1" target="DimProperty" value="property_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FRev_Location" edge="1" parent="1" source="FactReview" style="endArrow=block;endFill=1;rounded=0;html=1" target="DimLocation" value="location_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FRev_Date" edge="1" parent="1" source="FactReview" style="endArrow=block;endFill=1;rounded=0;html=1" target="DimDate" value="review_date_key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

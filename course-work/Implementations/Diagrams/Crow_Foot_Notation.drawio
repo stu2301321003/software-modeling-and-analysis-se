@@ -1,0 +1,114 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.1.1">
+  <diagram name="Страница-1" id="52eqD7NwksW8ew0P9ml5">
+    <mxGraphModel dx="1114" dy="1711" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" value="" />
+        <mxCell id="1" parent="0" value="" />
+        <mxCell id="2" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;b&gt;User&lt;/b&gt;&lt;br&gt;PK user_id : INT&lt;div&gt;&lt;div&gt;first_name : NVARCHAR(50)&lt;/div&gt;&lt;div&gt;last_name : NVARCHAR(50)&lt;/div&gt;&lt;div&gt;email : NVARCHAR(255)&lt;/div&gt;&lt;div&gt;phone : NVARCHAR(20)&lt;/div&gt;&lt;div&gt;role : NVARCHAR(20)&lt;/div&gt;&lt;div&gt;registration_date : DATETIME2(0)&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="200" x="61" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;b&gt;Property&lt;/b&gt;&lt;br&gt;PK property_id : INT&lt;div&gt;&lt;div&gt;name : NVARCHAR(200)&lt;/div&gt;&lt;div&gt;description : NVARCHAR(MAX)&lt;/div&gt;&lt;div&gt;address : NVARCHAR(255)&lt;/div&gt;&lt;div&gt;city : NVARCHAR(100)&lt;/div&gt;&lt;div&gt;country : NVARCHAR(100)&lt;/div&gt;&lt;div&gt;capacity : INT&lt;/div&gt;&lt;div&gt;base_price : DECIMAL(10,2)&lt;/div&gt;&lt;div&gt;cleaning_fee : DECIMAL(10,2)&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="180" width="200" x="711" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;b&gt;Amenity&lt;/b&gt;&lt;br&gt;PK amenity_id : INT&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;name : NVARCHAR(100)&lt;/div&gt;&lt;div&gt;description : NVARCHAR(255)&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="85" width="180" x="711" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;b&gt;Reservation&lt;/b&gt;&lt;br&gt;PK reservation_id : INT&lt;br&gt;FK user_id : INT&lt;br&gt;FK property_id : INT&lt;div&gt;&lt;div&gt;check_in : DATE&lt;/div&gt;&lt;div&gt;check_out : DATE&lt;/div&gt;&lt;div&gt;guests_count : INT&lt;/div&gt;&lt;div&gt;status : NVARCHAR(20)&lt;/div&gt;&lt;div&gt;created_at : DATETIME2(0)&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="160" x="395" y="-50" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;b&gt;Payment&lt;/b&gt;&lt;br&gt;PK payment_id : INT&lt;br&gt;FK reservation_id : INT&lt;div&gt;&lt;div&gt;amount : DECIMAL(10,2)&lt;/div&gt;&lt;div&gt;currency : CHAR(3)&lt;/div&gt;&lt;div&gt;method : NVARCHAR(50)&lt;/div&gt;&lt;div&gt;payment_date : DATETIME2(0)&lt;/div&gt;&lt;div&gt;status : NVARCHAR(20)&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="160" x="371" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;b&gt;Review&lt;/b&gt;&lt;br&gt;PK review_id : INT&lt;br&gt;FK user_id : INT&lt;br&gt;FK property_id : INT&lt;div&gt;&lt;div&gt;rating : TINYINT&lt;/div&gt;&lt;div&gt;comment : NVARCHAR(1000)&lt;/div&gt;&lt;div&gt;created_at : DATETIME2(0)&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="155" width="160" x="362" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;b&gt;Message&lt;/b&gt;&lt;br&gt;PK message_id : INT&lt;br&gt;FK user_id : INT&lt;br&gt;FK property_id : INT&lt;div&gt;&lt;div&gt;sent_at : DATETIME2(0)&lt;/div&gt;&lt;div&gt;content : NVARCHAR(MAX)&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="160" x="395" y="-250" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" value="&lt;b&gt;PropertyAmenity&lt;/b&gt;&lt;br/&gt;PK,FK property_id : INT&lt;br/&gt;PK,FK amenity_id : INT" vertex="1">
+          <mxGeometry height="60" width="160" x="721" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="10" edge="1" parent="1" source="2" style="endArrow=ERoneToMany;startArrow=ERmandOne;html=1;" target="5" value="user_id">
+          <mxGeometry relative="1" x="-0.5718" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qy5ffL9b9VQ6Ca1BPNV0-18" connectable="0" parent="10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Creates" vertex="1">
+          <mxGeometry relative="1" x="0.197" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11" edge="1" parent="1" source="3" style="endArrow=ERoneToMany;startArrow=ERmandOne;html=1;" target="5" value="property_id">
+          <mxGeometry relative="1" x="-0.7327" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qy5ffL9b9VQ6Ca1BPNV0-21" connectable="0" parent="11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Receives" vertex="1">
+          <mxGeometry relative="1" x="0.4301" y="-3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" edge="1" parent="1" source="5" style="endArrow=ERoneToMany;startArrow=ERmandOne;html=1;" target="6" value="reservation_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qy5ffL9b9VQ6Ca1BPNV0-22" connectable="0" parent="12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Containes" vertex="1">
+          <mxGeometry relative="1" x="0.4309" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" edge="1" parent="1" source="2" style="endArrow=ERoneToMany;startArrow=ERmandOne;html=1;" target="7" value="user_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qy5ffL9b9VQ6Ca1BPNV0-23" connectable="0" parent="13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Creates" vertex="1">
+          <mxGeometry relative="1" x="0.6172" y="3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" edge="1" parent="1" source="3" style="endArrow=ERoneToMany;startArrow=ERmandOne;html=1;" target="7" value="property_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qy5ffL9b9VQ6Ca1BPNV0-24" connectable="0" parent="14" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Receives" vertex="1">
+          <mxGeometry relative="1" x="0.6117" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" edge="1" parent="1" source="2" style="endArrow=ERoneToMany;startArrow=ERmandOne;html=1;" target="8" value="user_id">
+          <mxGeometry relative="1" x="-0.6881" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qy5ffL9b9VQ6Ca1BPNV0-19" connectable="0" parent="15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Creates/receives" vertex="1">
+          <mxGeometry relative="1" x="0.5653" y="4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" edge="1" parent="1" source="3" style="endArrow=ERoneToMany;startArrow=ERmandOne;html=1;" target="8" value="property_id">
+          <mxGeometry relative="1" x="-0.8194" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qy5ffL9b9VQ6Ca1BPNV0-20" connectable="0" parent="16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Creates/receives" vertex="1">
+          <mxGeometry relative="1" x="-0.6694" as="geometry">
+            <mxPoint x="-125" y="-134" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" edge="1" parent="1" source="3" style="endArrow=ERoneToMany;startArrow=ERmandOne;html=1;" target="9" value="property_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qy5ffL9b9VQ6Ca1BPNV0-25" connectable="0" parent="17" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Has" vertex="1">
+          <mxGeometry relative="1" x="0.4281" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" edge="1" parent="1" source="4" style="endArrow=ERoneToMany;startArrow=ERmandOne;html=1;" target="9" value="amenity_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qy5ffL9b9VQ6Ca1BPNV0-26" connectable="0" parent="18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Has" vertex="1">
+          <mxGeometry relative="1" x="-0.3887" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
